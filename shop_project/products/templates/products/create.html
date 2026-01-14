@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Додати продукт</h1>
+
+<form method="post" class="product-form">
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+
+    <div>
+        {{ form.name.label_tag }}
+        {{ form.name }}
+    </div>
+
+    <div>
+        {{ form.description.label_tag }}
+        {{ form.description }}
+    </div>
+
+    <div>
+        {{ form.price.label_tag }}
+        {{ form.price }}
+    </div>
+
+    <button class="button" type="submit">Зберегти</button>
+</form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+{% include 'layout/navigation.html' %}
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+{% include 'layout/footer.html' %}
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="get">
+    <input type="text" name="q" placeholder="Пошук..." value="{{ query }}">
+    <button class="button">🔍</button>
+</form>
+
+{% if user.is_authenticated %}
+    <a class="button" href="{% url 'product_create' %}">Додати</a>
+{% endif %}
+
+{% for product in products %}
+<div class="product">
+    <h3>{{ product.name }}</h3>
+
+    {% if product.image %}
+        <img src="{{ product.image.url }}" width="200">
+    {% endif %}
+
+    <p>{{ product.description|truncatewords:20 }}</p>
+    <p>{{ product.price }} грн</p>
+
+    <a class="button" href="{% url 'product_detail' product.pk %}">Переглянути</a>
+</div>
+{% endfor %}
+
+{% endblock %}
